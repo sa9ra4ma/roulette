@@ -1,2 +1,16 @@
-<h1>Welcome to SvelteKit!</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang='ts'>
+  // import { Weapon } from './types';
+
+  // export let data: { weapons: Weapon[] };
+  export let data;
+  let weapons = data.weapons.map(v => v.name);
+  let weapon = '';
+
+  function roulette() {
+    const randomIndex = Math.floor(Math.random() * weapons.length);
+    weapon = weapons[randomIndex];
+  }
+</script>
+
+<button on:click={roulette}>ルーレット！</button>
+<p>{ weapon }</p>

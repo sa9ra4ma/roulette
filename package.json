@@ -23,5 +23,8 @@
 	"volta": {
 		"node": "20.10.0",
 		"npm": "10.2.5"
+	},
+	"dependencies": {
+		"@supabase/supabase-js": "^2.39.0"
 	}
 }
