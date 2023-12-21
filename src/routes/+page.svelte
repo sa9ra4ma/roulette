@@ -37,8 +37,8 @@
 
 </script>
 
-<!-- <button on:click=
- -->
+<button on:click={roulette}>ルーレット！</button>
+<p>{ weapon }</p>
 
 <div class="roulette-container">
   <div class="roulette-wheel" id="rouletteWheel">
