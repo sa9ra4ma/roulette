@@ -2,8 +2,7 @@ import { supabase } from '$lib/supabaseClient';  // Supabaseクライアント�
 // import { Weapon } from './types';
 
 export async function load() {
-  console.log("load route")
-
+  console.log("load board")
   const { data } = await supabase.from('weapons').select();
   // const { data }: { data: Weapon[] } = await supabase.from('weapons').select(); // 型付けるのうまくいかない
   return {
