@@ -49,6 +49,7 @@
     border-radius: 50%;
     background-color: #f1f1f1;
     overflow: hidden;
+    margin: 0 auto;
   }
 
   .roulette-wheel {
