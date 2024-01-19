@@ -1,8 +1,7 @@
 <script lang='ts'>
-  import { weaponsData } from '$lib/stores';
 
-  const data = $weaponsData;
-  let weapons = data;
+  export let data;
+  let weapons = data.weapons.map(v => v.name);
 
   let rotateDeg = 0;
 
@@ -30,25 +29,30 @@
 
 </script>
 
-<div class="roulette-container">
-  <div class="roulette-wheel" id="rouletteWheel">
-    {#each weapons as v, index (index)}
-      <div class="roulette-section" style="background-color: {randomColor()}; transform: rotate({(360/weapons.length) * (index-1)}deg); clip-path: {clipPathValue};">
-        <div class="section-text">{v}</div>
-      </div>
-    {/each}
+<div class="roulette-board">
+  <div class="roulette-container">
+    <div class="roulette-wheel" id="rouletteWheel">
+      {#each weapons as v, index (index)}
+        <div class="roulette-section" style="background-color: {randomColor()}; transform: rotate({(360/weapons.length) * (index-1)}deg); clip-path: {clipPathValue};">
+          <div class="section-text">{v}</div>
+        </div>
+      {/each}
+    </div>
+    <div class="roulette-pointer">←</div>
   </div>
 </div>
 <button class="spin-btn" on:click={spinRoulette}>Spin</button>
 
 <style>
+  .roulette-board {
+    display: flex;
+  }
   .roulette-container {
     position: relative;
     width: 300px;
     height: 300px;
     border-radius: 50%;
     background-color: #f1f1f1;
-    overflow: hidden;
     margin: 0 auto;
   }
 
@@ -75,6 +79,14 @@
     font-size: 4px;
     font-weight: bold;
     margin: 0 2px 0 auto;
+  }
+
+  .roulette-pointer {
+    position: relative;
+    color: red;
+    top: -166.5px;
+    left: 300px;
+    font-size: 25px;
   }
 
   .spin-btn {

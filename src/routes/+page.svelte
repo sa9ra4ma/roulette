@@ -3,13 +3,8 @@
 
   // export let data: { weapons: Weapon[] };
 
-  import { weaponsData } from '$lib/stores';
-
-// データを格納
   export let data;
-
   let weapons = data.weapons.map(v => v.name);
-  weaponsData.set(weapons);
   let weapon = '';
 
   function roulette() {
