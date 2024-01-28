@@ -33,18 +33,20 @@
     let elements = document.getElementsByName('question1');
     let len = elements.length;
     let checkValue = '';
-
-    for (let i = 0; i < len; i++){
-        if (elements.item(i).checked){
-            checkValue = elements.item(i).value;
-        }
+    let i = 0;
+    for (i = 0; i < len; i++){
+      if (elements.item(i).checked){
+        checkValue = elements.item(i).value;
+        break;
+      }
     }
-    if (checkValue === 'option1') correctCount++;
+    if (checkValue === 'option1-1') correctCount++;
 
     var quiz1 = document.getElementById('quiz1');
     quiz1.classList.add('hidden');
 
     setTimeout(() => {
+      if (i < 4) elements.item(i).checked = false;
       quiz1.classList.add('display-none');
       var quiz2 = document.getElementById('quiz2');
       quiz2.classList.remove('hidden');
@@ -52,21 +54,23 @@
   }
 
   function answerQuiz2(){
-    let elements = document.getElementsByName('question1');
+    let elements = document.getElementsByName('question2');
     let len = elements.length;
     let checkValue = '';
-
-    for (let i = 0; i < len; i++){
-        if (elements.item(i).checked){
-            checkValue = elements.item(i).value;
-        }
+    let i = 0;
+    for (i = 0; i < len; i++){
+      if (elements.item(i).checked){
+        checkValue = elements.item(i).value;
+        break;
+      }
     }
-    if (checkValue === 'option1') correctCount++;
+    if (checkValue === 'option2-1') correctCount++;
 
     var quiz2 = document.getElementById('quiz2');
     quiz2.classList.add('hidden');
 
     setTimeout(() => {
+      if (i < 4) elements.item(i).checked = false;
       quiz2.classList.add('display-none');
       var quiz3 = document.getElementById('quiz3');
       quiz3.classList.remove('hidden');
@@ -74,16 +78,18 @@
   }
 
   function answerQuiz3(){
-    let elements = document.getElementsByName('question1');
+    let elements = document.getElementsByName('question3');
     let len = elements.length;
     let checkValue = '';
-
-    for (let i = 0; i < len; i++){
-        if (elements.item(i).checked){
-            checkValue = elements.item(i).value;
-        }
+    let i = 0;
+    for (i = 0; i < len; i++){
+      if (elements.item(i).checked){
+        checkValue = elements.item(i).value;
+        break;
+      }
     }
-    if (checkValue === 'option1') correctCount++;
+    if (checkValue === 'option3-1') correctCount++;
+
     switch (correctCount) {
       case 0:
         resultComment = 'やる気ある？';
@@ -105,6 +111,7 @@
     quiz3.classList.add('hidden');
 
     setTimeout(() => {
+      if (i < 4) elements.item(i).checked = false;
       quiz3.classList.add('display-none');
       var result = document.getElementById('result');
       result.classList.remove('hidden');
@@ -145,20 +152,20 @@
     <div id="quiz1" class="main-quiz fade-out">
       <h2>Q1: スプラシュータのメインのダメージ量は？</h2>
       <div class="select">
-        <input type="radio" id="option1" name="question1" value="option1">
-        <label for="option1">
+        <input type="radio" id="option1-1" name="question1" value="option1-1">
+        <label for="option1-1">
           <i>10</i>
         </label>
-        <input type="radio" id="option2" name="question1" value="option2">
-        <label for="option2">
+        <input type="radio" id="option1-2" name="question1" value="option1-2">
+        <label for="option1-2">
           <i>20</i>
         </label>
-        <input type="radio" id="option3" name="question1" value="option3">
-        <label for="option3">
+        <input type="radio" id="option1-3" name="question1" value="option1-3">
+        <label for="option1-3">
           <i>30</i>
         </label>
-        <input type="radio" id="option4" name="question1" value="option4">
-        <label for="option4">
+        <input type="radio" id="option1-4" name="question1" value="option1-4">
+        <label for="option1-4">
           <i>40</i>
         </label>
       </div>
@@ -171,20 +178,20 @@
     <div id="quiz2" class="main-quiz fade-out hidden">
       <h2>Q2: スプラシュータのメインのダメージ量は？</h2>
       <div class="select">
-        <input type="radio" id="option1" name="question2" value="option1">
-        <label for="option1">
+        <input type="radio" id="option2-1" name="question2" value="option2-1">
+        <label for="option2-1">
           <i>10</i>
         </label>
-        <input type="radio" id="option2" name="question2" value="option2">
-        <label for="option2">
+        <input type="radio" id="option2-2" name="question2" value="option2-2">
+        <label for="option2-2">
           <i>20</i>
         </label>
-        <input type="radio" id="option3" name="question2" value="option3">
-        <label for="option3">
+        <input type="radio" id="option2-3" name="question2" value="option2-3">
+        <label for="option2-3">
           <i>30</i>
         </label>
-        <input type="radio" id="option4" name="question2" value="option4">
-        <label for="option4">
+        <input type="radio" id="option2-4" name="question2" value="option2-4">
+        <label for="option2-4">
           <i>40</i>
         </label>
       </div>
@@ -197,20 +204,20 @@
     <div id="quiz3" class="main-quiz fade-out hidden">
       <h2>Q3: スプラシュータのメインのダメージ量は？</h2>
       <div class="select">
-        <input type="radio" id="option1" name="question3" value="option1">
-        <label for="option1">
+        <input type="radio" id="option3-1" name="question3" value="option3-1">
+        <label for="option3-1">
           <i>10</i>
         </label>
-        <input type="radio" id="option2" name="question3" value="option2">
-        <label for="option2">
+        <input type="radio" id="option3-2" name="question3" value="option3-2">
+        <label for="option3-2">
           <i>20</i>
         </label>
-        <input type="radio" id="option3" name="question3" value="option3">
-        <label for="option3">
+        <input type="radio" id="option3-3" name="question3" value="option3-3">
+        <label for="option3-3">
           <i>30</i>
         </label>
-        <input type="radio" id="option4" name="question3" value="option4">
-        <label for="option4">
+        <input type="radio" id="option3-4" name="question3" value="option3-4">
+        <label for="option3-4">
           <i>40</i>
         </label>
       </div>
@@ -222,7 +229,7 @@
 
     <div id="result" class="main-quiz fade-out hidden">
       <h2>結果: 3問中{correctCount}問正解！</h2>
-      <div>{resultComment}</div>
+      <div class="result-comment">{resultComment}</div>
       <div class="answer-btn-wrap">
         <button class="answer-btn" on:click={returnToStart}>もう一回挑戦！</button>
       </div>
@@ -300,5 +307,9 @@
     box-shadow: 0 3px 0 #a2a4a7; /* 影の太さ・色 */
     border-radius: 60px;
     cursor: pointer;
+  }
+
+  .result-comment {
+    margin: 0 0 20px 0;
   }
 </style>
