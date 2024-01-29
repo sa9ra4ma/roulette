@@ -291,6 +291,7 @@
     margin: 10px;
     height: 40px;
     line-height: 40px;
+    font-size: 13px
   }
   .select label:hover {
     color: #aaa;
