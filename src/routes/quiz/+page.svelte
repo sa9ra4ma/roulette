@@ -98,7 +98,7 @@
         resultComment = 'まぐれで1問！';
         break;
       case 2:
-        resultComment = 'ぼちぼちだね';
+        resultComment = 'いっつもあと一歩！';
         break;
       case 3:
         resultComment = '知識だけはいっちょまえ！';
