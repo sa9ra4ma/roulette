@@ -180,7 +180,7 @@
       <div class="select">
         <input type="radio" id="option2-1" name="question2" value="option2-1">
         <label for="option2-1">
-          <i>メガホンレーザー5.1ch</i>
+          <i>メガホンレーザー</i>
         </label>
         <input type="radio" id="option2-2" name="question2" value="option2-2">
         <label for="option2-2">
