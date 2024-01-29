@@ -40,7 +40,7 @@
         break;
       }
     }
-    if (checkValue === 'option1-1') correctCount++;
+    if (checkValue === 'option1-3') correctCount++;
 
     var quiz1 = document.getElementById('quiz1');
     quiz1.classList.add('hidden');
@@ -88,7 +88,7 @@
         break;
       }
     }
-    if (checkValue === 'option3-1') correctCount++;
+    if (checkValue === 'option3-3') correctCount++;
 
     switch (correctCount) {
       case 0:
@@ -150,23 +150,23 @@
 
   <div class="container">
     <div id="quiz1" class="main-quiz fade-out">
-      <h2>Q1: スプラシュータのメインのダメージ量は？</h2>
+      <h2>Q1: スプラシューターのメインのダメージ量は？</h2>
       <div class="select">
         <input type="radio" id="option1-1" name="question1" value="option1-1">
         <label for="option1-1">
-          <i>10</i>
+          <i>32.0</i>
         </label>
         <input type="radio" id="option1-2" name="question1" value="option1-2">
         <label for="option1-2">
-          <i>20</i>
+          <i>34.0</i>
         </label>
         <input type="radio" id="option1-3" name="question1" value="option1-3">
         <label for="option1-3">
-          <i>30</i>
+          <i>36.0</i>
         </label>
         <input type="radio" id="option1-4" name="question1" value="option1-4">
         <label for="option1-4">
-          <i>40</i>
+          <i>38.0</i>
         </label>
       </div>
 
@@ -176,23 +176,23 @@
     </div>
 
     <div id="quiz2" class="main-quiz fade-out hidden">
-      <h2>Q2: スプラシュータのメインのダメージ量は？</h2>
+      <h2>Q2: 14式竹筒銃・甲のスペシャルウェポンは？</h2>
       <div class="select">
         <input type="radio" id="option2-1" name="question2" value="option2-1">
         <label for="option2-1">
-          <i>10</i>
+          <i>メガホンレーザー5.1ch</i>
         </label>
         <input type="radio" id="option2-2" name="question2" value="option2-2">
         <label for="option2-2">
-          <i>20</i>
+          <i>エナジースタンド</i>
         </label>
         <input type="radio" id="option2-3" name="question2" value="option2-3">
         <label for="option2-3">
-          <i>30</i>
+          <i>キューインキ</i>
         </label>
         <input type="radio" id="option2-4" name="question2" value="option2-4">
         <label for="option2-4">
-          <i>40</i>
+          <i>アメフラシ</i>
         </label>
       </div>
 
@@ -202,23 +202,23 @@
     </div>
 
     <div id="quiz3" class="main-quiz fade-out hidden">
-      <h2>Q3: スプラシュータのメインのダメージ量は？</h2>
+      <h2>Q3: 以下のブキの中で1番射程が短いものは？</h2>
       <div class="select">
         <input type="radio" id="option3-1" name="question3" value="option3-1">
         <label for="option3-1">
-          <i>10</i>
+          <i>ボトルガイザー</i>
         </label>
         <input type="radio" id="option3-2" name="question3" value="option3-2">
         <label for="option3-2">
-          <i>20</i>
+          <i>ジェットスイーパー</i>
         </label>
         <input type="radio" id="option3-3" name="question3" value="option3-3">
         <label for="option3-3">
-          <i>30</i>
+          <i>ロングブラスター</i>
         </label>
         <input type="radio" id="option3-4" name="question3" value="option3-4">
         <label for="option3-4">
-          <i>40</i>
+          <i>エクスプロッシャー</i>
         </label>
       </div>
 
