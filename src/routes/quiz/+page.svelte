@@ -1,5 +1,7 @@
 <script lang='ts'>
   import { onMount } from 'svelte';
+  import OptionLabel from '$lib/component/OptionLabel.svelte';
+
   // export let data
   // let weapons = data.weapons.map(v => v.name);
 
@@ -139,6 +141,14 @@
       }, 1)
     }, 1000);
   }
+
+  let options1 = ["32.0", "34.0", "36.0", "38.0"];
+  let options2 = ["メガホンレーザー", "エナジースタンド", "キューインキ", "アメフラシ"];
+  let options3 = ["ボトルガイザー", "ジェットスイーパー", "ロングブラスター", "エクスプロッシャー"];
+
+  function generateRadioId(quizNo, optionNo) {
+    return `option${quizNo}-${optionNo}`
+  }
 </script>
 
 <title>四択クイズ</title>
@@ -152,22 +162,14 @@
     <div id="quiz1" class="main-quiz fade-out">
       <h2>Q1: スプラシューターのメインのダメージ量は？</h2>
       <div class="select">
-        <input type="radio" id="option1-1" name="question1" value="option1-1">
-        <label for="option1-1">
-          <i>32.0</i>
-        </label>
-        <input type="radio" id="option1-2" name="question1" value="option1-2">
-        <label for="option1-2">
-          <i>34.0</i>
-        </label>
-        <input type="radio" id="option1-3" name="question1" value="option1-3">
-        <label for="option1-3">
-          <i>36.0</i>
-        </label>
-        <input type="radio" id="option1-4" name="question1" value="option1-4">
-        <label for="option1-4">
-          <i>38.0</i>
-        </label>
+        {#each options1 as option, i}
+          <OptionLabel
+            name="question1"
+            id="{generateRadioId(1, i + 1)}"
+            value="{generateRadioId(1, i + 1)}"
+            option="{option}"
+          />
+        {/each}
       </div>
 
       <div class="answer-btn-wrap">
@@ -178,22 +180,14 @@
     <div id="quiz2" class="main-quiz fade-out hidden">
       <h2>Q2: 14式竹筒銃・甲のスペシャルウェポンは？</h2>
       <div class="select">
-        <input type="radio" id="option2-1" name="question2" value="option2-1">
-        <label for="option2-1">
-          <i>メガホンレーザー</i>
-        </label>
-        <input type="radio" id="option2-2" name="question2" value="option2-2">
-        <label for="option2-2">
-          <i>エナジースタンド</i>
-        </label>
-        <input type="radio" id="option2-3" name="question2" value="option2-3">
-        <label for="option2-3">
-          <i>キューインキ</i>
-        </label>
-        <input type="radio" id="option2-4" name="question2" value="option2-4">
-        <label for="option2-4">
-          <i>アメフラシ</i>
-        </label>
+        {#each options2 as option, i}
+          <OptionLabel
+            name="question2"
+            id="{generateRadioId(2, i + 1)}"
+            value="{generateRadioId(2, i + 1)}"
+            option="{option}"
+          />
+        {/each}
       </div>
 
       <div class="answer-btn-wrap">
@@ -204,22 +198,14 @@
     <div id="quiz3" class="main-quiz fade-out hidden">
       <h2>Q3: 以下のブキの中で1番射程が短いものは？</h2>
       <div class="select">
-        <input type="radio" id="option3-1" name="question3" value="option3-1">
-        <label for="option3-1">
-          <i>ボトルガイザー</i>
-        </label>
-        <input type="radio" id="option3-2" name="question3" value="option3-2">
-        <label for="option3-2">
-          <i>ジェットスイーパー</i>
-        </label>
-        <input type="radio" id="option3-3" name="question3" value="option3-3">
-        <label for="option3-3">
-          <i>ロングブラスター</i>
-        </label>
-        <input type="radio" id="option3-4" name="question3" value="option3-4">
-        <label for="option3-4">
-          <i>エクスプロッシャー</i>
-        </label>
+        {#each options3 as option, i}
+          <OptionLabel
+            name="question3"
+            id="{generateRadioId(3, i + 1)}"
+            value="{generateRadioId(3, i + 1)}"
+            option="{option}"
+          />
+        {/each}
       </div>
 
       <div class="answer-btn-wrap">
@@ -269,34 +255,6 @@
   .select {
     text-align: center;
     margin: 0 auto 20px;
-  }
-  .select input {
-    display: none;
-  }
-  .select input[type="radio"]:checked + label {
-    color: #000;
-    border: 2px solid gray;
-    background-color: #b3b9e8;
-    box-shadow: 1px 1px 3px gray;
-  }
-  .select label {
-    color: #3275bc;
-    border: 2px solid #3275bc;
-    background-color: #d0e6fd;
-    text-align: center;
-    display: inline-block;
-    padding: 5px 0px;
-    width: 120px;
-    border-radius: 10px;
-    margin: 10px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 13px
-  }
-  .select label:hover {
-    color: #aaa;
-    border: 2px solid #aaa;
-    cursor: pointer;
   }
 
   .answer-btn-wrap {
