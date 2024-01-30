@@ -1,35 +1,13 @@
 <script lang='ts'>
   import { onMount } from 'svelte';
   import OptionLabel from '$lib/component/OptionLabel.svelte';
+  import QuizCard from '$lib/component/QuizCard.svelte';
 
   // export let data
   // let weapons = data.weapons.map(v => v.name);
 
   let correctCount = 0;
   let resultComment = '';
-
-  onMount(() => {
-    // 最初のdivをフェードアウトして、別のdivを表示する関数
-    function fadeOutAndShowNext() {
-      var fadeOutDiv = document.getElementById('fadeOutDiv');
-      var nextDiv = document.getElementById('nextDiv');
-        
-      // fadeOutDivをフェードアウト
-      fadeOutDiv.classList.add('hidden');
-        
-      // 3秒後に次のdivを表示
-      setTimeout(function() {
-        fadeOutDiv.classList.add('display-none');
-        nextDiv.classList.remove('display-none');
-      }, 3000); // 1秒後に次のdivを表示
-    }
-    // setTimeout(()=>fadeOutAndShowNext(),3000);
-    
-    // ページ読み込み後、3秒後にフェードアウトと次のdivの表示を開始
-    // window.onload = function() {
-    //     setTimeout(fadeOutAndShowNext, 3000); // 3秒後にフェードアウトと次のdivの表示を開始
-    // };
-  });
   
   function answerQuiz1(){
     let elements = document.getElementsByName('question1');
@@ -146,6 +124,45 @@
   let options2 = ["メガホンレーザー", "エナジースタンド", "キューインキ", "アメフラシ"];
   let options3 = ["ボトルガイザー", "ジェットスイーパー", "ロングブラスター", "エクスプロッシャー"];
 
+  const response = [
+    {
+      quiz_id: 1,
+      question: 'スプラシューターのメインのダメージ量は？',
+      type: 1,
+      options: [
+        { text: '32.0', display_order: 1 },
+        { text: '34.0', display_order: 2 },
+        { text: '36.0', display_order: 3 },
+        { text: '38.0', display_order: 4 },
+      ],
+      correct_choises_no: 3,
+    },
+    {
+      quiz_id: 2,
+      question: '14式竹筒銃・甲のスペシャルウェポンは？',
+      type: 1,
+      options: [
+        { text: 'メガホンレーザー', display_order: 1 },
+        { text: 'エナジースタンド', display_order: 2 },
+        { text: 'キューインキ', display_order: 3 },
+        { text: 'アメフラシ', display_order: 4 },
+      ],
+      correct_choises_no: 1,
+    },
+    {
+      quiz_id: 3,
+      question: '以下のブキの中で1番射程が短いものは？',
+      type: 1,
+      options: [
+        { text: 'ボトルガイザー', display_order: 1 },
+        { text: 'ジェットスイーパー', display_order: 2 },
+        { text: 'ロングブラスター', display_order: 3 },
+        { text: 'エクスプロッシャー', display_order: 4 },
+      ],
+      correct_choises_no: 3,
+    },
+  ]
+
   function generateRadioId(quizNo, optionNo) {
     return `option${quizNo}-${optionNo}`
   }
@@ -159,59 +176,29 @@
   <div class="hidden display-none"></div>
 
   <div class="container">
-    <div id="quiz1" class="main-quiz fade-out">
-      <h2>Q1: スプラシューターのメインのダメージ量は？</h2>
-      <div class="select">
-        {#each options1 as option, i}
-          <OptionLabel
-            name="question1"
-            id="{generateRadioId(1, i + 1)}"
-            value="{generateRadioId(1, i + 1)}"
-            option="{option}"
-          />
-        {/each}
-      </div>
+    <QuizCard
+      question="スプラシューターのメインのダメージ量は？"
+      questionNo={1}
+      options={options1}
+      isHidden={false}
+      on:answerQuestion={answerQuiz1}
+    />
 
-      <div class="answer-btn-wrap">
-        <button class="answer-btn" on:click={answerQuiz1}>NEXT→</button>
-      </div>
-    </div>
+    <QuizCard
+      question="14式竹筒銃・甲のスペシャルウェポンは？"
+      questionNo={2}
+      options={options2}
+      isHidden={true}
+      on:answerQuestion={answerQuiz2}
+    />
 
-    <div id="quiz2" class="main-quiz fade-out hidden">
-      <h2>Q2: 14式竹筒銃・甲のスペシャルウェポンは？</h2>
-      <div class="select">
-        {#each options2 as option, i}
-          <OptionLabel
-            name="question2"
-            id="{generateRadioId(2, i + 1)}"
-            value="{generateRadioId(2, i + 1)}"
-            option="{option}"
-          />
-        {/each}
-      </div>
-
-      <div class="answer-btn-wrap">
-        <button class="answer-btn" on:click={answerQuiz2}>NEXT→</button>
-      </div>
-    </div>
-
-    <div id="quiz3" class="main-quiz fade-out hidden">
-      <h2>Q3: 以下のブキの中で1番射程が短いものは？</h2>
-      <div class="select">
-        {#each options3 as option, i}
-          <OptionLabel
-            name="question3"
-            id="{generateRadioId(3, i + 1)}"
-            value="{generateRadioId(3, i + 1)}"
-            option="{option}"
-          />
-        {/each}
-      </div>
-
-      <div class="answer-btn-wrap">
-        <button class="answer-btn" on:click={answerQuiz3}>NEXT→</button>
-      </div>
-    </div>
+    <QuizCard
+      question="以下のブキの中で1番射程が短いものは？"
+      questionNo={3}
+      options={options3}
+      isHidden={true}
+      on:answerQuestion={answerQuiz3}
+    />
 
     <div id="result" class="main-quiz fade-out hidden">
       <h2>結果: 3問中{correctCount}問正解！</h2>
