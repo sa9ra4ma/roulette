@@ -1,4 +1,5 @@
 import OpenAI from 'openai';
+import { OPENAI_API_KEY } from '$env/static/private'
 
 export async function POST({ request }) {
   const req = await request.json();
@@ -44,7 +45,7 @@ H3リールガンD,チャージが速い
 ${req.message}
 -------------
   `;
-  const openai = new OpenAI({apiKey:''});
+  const openai = new OpenAI({apiKey: OPENAI_API_KEY});
   const chatCompletion = await openai.chat.completions.create({
     messages: [{ role: 'user', content: message }],
     model: 'gpt-3.5-turbo',
