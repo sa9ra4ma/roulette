@@ -44,7 +44,7 @@ H3リールガンD,チャージが速い
 ${req.message}
 -------------
   `;
-  const openai = new OpenAI({apiKey:'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'});
+  const openai = new OpenAI({apiKey:''});
   const chatCompletion = await openai.chat.completions.create({
     messages: [{ role: 'user', content: message }],
     model: 'gpt-3.5-turbo',
