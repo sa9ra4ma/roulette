@@ -13,7 +13,7 @@
   }
 </script>
 
-<button on:click={roulette}>ルーレット！</button>
+<button on:click={roulette}>ルーレット！！</button>
 <p>{ weapon }</p>
 
 <a href="/recommend">レコメンドはこちら</a>
