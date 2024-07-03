@@ -30,7 +30,7 @@
           resultComment = 'まだ試験キャンセルできるかも！';
           break;
         case 2:
-          resultComment = '偶数だね！';
+          resultComment = '先生の教え方が悪かったよね？ごめんね';
           break;
         case 3:
           resultComment = 'えー、至って平凡です';
